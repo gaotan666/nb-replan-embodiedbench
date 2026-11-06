@@ -1,14 +1,16 @@
 (() => {
   const data = window.SHOWCASE_DATA;
   if (!data) throw new Error('Missing showcase data');
-  const fmt = number => Number(number).toFixed(Number(number) % 1 ? 1 : 0);
+  const fmt = number => Number(number).toFixed(1);
   for (const key of ['alfred', 'habitat']) {
     const body = document.getElementById(`${key}-rows`);
     const local = data.benchmarks[key];
-    const rows = [{name: 'NB-Replan（本地）', avg: local.avg, six: local.six}, ...local.references];
+    const rows = [{name: 'NB-Replan（本地）', total: local.total,
+      successes: local.successes, avg: local.avg, six: local.six}, ...local.references];
     for (const row of rows) {
       const tr = document.createElement('tr');
-      for (const value of [row.name, fmt(row.avg), ...row.six.map(fmt)]) {
+      for (const value of [row.name, row.total, row.successes,
+        fmt(row.avg), ...row.six.map(fmt)]) {
         const td = document.createElement('td'); td.textContent = value; tr.append(td);
       }
       body.append(tr);

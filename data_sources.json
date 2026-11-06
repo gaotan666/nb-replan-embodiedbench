@@ -1,0 +1,12 @@
+{
+  "local_reports": {
+    "alfred": "实验结果/EB-ALFRED_标准方案/EB-ALFRED_测评结果/EB-ALFRED_300题测评报告_244成功_81.3.json",
+    "habitat": "实验结果/EB-Habitat_标准方案/EB-Habitat_测评结果/EB-Habitat_300题测评报告_288成功_96.0.json"
+  },
+  "official_references": {
+    "official": "https://embodiedbench.github.io/",
+    "alfred_references": "https://github.com/EmbodiedBench/embodiedbench.github.io/blob/main/website/data/eb_alfred_total_benchmark.json",
+    "habitat_references": "https://github.com/EmbodiedBench/embodiedbench.github.io/blob/main/website/data/eb_habitat_total_benchmark.json"
+  },
+  "note": "Our public-task scores were obtained after task-driven constraint-library repair; official rows are historical reference results from the benchmark website. They are not one controlled leaderboard submission."
+}

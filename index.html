@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="NB-Replan 的 EB-ALFRED 与 EB-Habitat 测评结果和真实仿真轨迹。">
+  <title>NB-Replan · EmbodiedBench 结果</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <header>
+    <p class="overline">NB-Replan / EmbodiedBench</p>
+    <h1>高层规划任务结果与仿真演示</h1>
+    <p>以 Qwen3.5-9B 为基础，EB-ALFRED 与 EB-Habitat 分别训练 LoRA，并使用各自的失败约束库。以下是本地公开 300 题的完整测评结果。</p>
+    <div class="highlights"><div><strong>81.3%</strong><span>EB-ALFRED · 244/300</span></div><div><strong>96.0%</strong><span>EB-Habitat · 288/300</span></div></div>
+  </header>
+
+  <section aria-labelledby="results-title">
+    <h2 id="results-title">结果对照</h2>
+    <p class="note">六类任务各 50 题。数值为成功率（%），Avg 为 300 题平均成功率。</p>
+    <div class="table-block"><h3>表 1　EB-ALFRED</h3><div class="table-scroll"><table><thead><tr><th>模型</th><th>Avg</th><th>Base</th><th>Common</th><th>Complex</th><th>Visual</th><th>Spatial</th><th>Long</th></tr></thead><tbody id="alfred-rows"></tbody></table></div><p class="source">其他模型成绩来自 <a href="https://github.com/EmbodiedBench/embodiedbench.github.io/blob/main/website/data/eb_alfred_total_benchmark.json" target="_blank" rel="noopener noreferrer">EmbodiedBench 官方数据</a>。</p></div>
+    <div class="table-block"><h3>表 2　EB-Habitat</h3><div class="table-scroll"><table><thead><tr><th>模型</th><th>Avg</th><th>Base</th><th>Common</th><th>Complex</th><th>Visual</th><th>Spatial</th><th>Long</th></tr></thead><tbody id="habitat-rows"></tbody></table></div><p class="source">其他模型成绩来自 <a href="https://github.com/EmbodiedBench/embodiedbench.github.io/blob/main/website/data/eb_habitat_total_benchmark.json" target="_blank" rel="noopener noreferrer">EmbodiedBench 官方数据</a>。</p></div>
+    <p class="scope">NB-Replan 的约束库曾依据这些公开题的失败轨迹迭代。官网模型成绩仅作数值参照；本页不表示官方榜单提交或未见任务的同协议排名。</p>
+  </section>
+
+  <section aria-labelledby="demos-title">
+    <h2 id="demos-title">仿真演示</h2>
+    <p class="note">两套任务各选 3 段完整测评中的成功轨迹。每执行一步保存一张原始画面；下方动画按动作播放，并用短暂淡入改善观看节奏。这是逐动作回放，不是连续录屏。</p>
+    <h3 class="demo-heading">EB-ALFRED</h3><div class="demo-grid" id="alfred-demos"></div>
+    <h3 class="demo-heading">EB-Habitat</h3><div class="demo-grid" id="habitat-demos"></div>
+  </section>
+
+  <footer>本地报告来源见 <a href="data_sources.json">data_sources.json</a>。仿真画面和动作均来自真实测评记录。<a href="https://embodiedbench.github.io/" target="_blank" rel="noopener noreferrer">EmbodiedBench 项目页</a></footer>
+</main>
+<script src="data.js"></script><script src="app.js"></script>
+</body>
+</html>
